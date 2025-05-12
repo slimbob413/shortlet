@@ -1,0 +1,45 @@
+version: 1.0
+name: shortlet
+description: A short-term rental platform
+
+structure:
+  monorepo:
+    directories:
+      - name: frontend
+        type: react
+        tech_stack:
+          - typescript
+          - tailwindcss
+        linting:
+          - eslint
+          - prettier
+      - name: backend
+        type: node
+        tech_stack:
+          - express
+          - postgresql
+        linting:
+          - eslint
+          - prettier
+      - name: scripts
+        type: utility
+
+git:
+  branch_naming:
+    patterns:
+      - feature/*
+      - fix/*
+      - release/*
+
+dependencies:
+  frontend:
+    - react
+    - typescript
+    - tailwindcss
+    - eslint
+    - prettier
+  backend:
+    - express
+    - postgresql
+    - eslint
+    - prettier 

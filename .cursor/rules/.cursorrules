@@ -1,0 +1,39 @@
+# .cursorrules
+
+# 1. General
+- Always write in TypeScript (use .ts/.tsx extensions).
+- Use single quotes for strings, always include semicolons.
+- Files should be 2-space indented.
+- Use ES modules (import/export), never require().
+
+# 2. Frontend (React + Tailwind)
+- All components are functional and use hooks; no class components.
+- Place pages in `frontend/src/pages/` and reusable pieces in `frontend/src/components/`.
+- Use React Hook Form for all form validation.
+- Style entirely with Tailwind utility classes—no custom CSS files.
+- Naming: component files in PascalCase (e.g. `AgentOnboardingForm.tsx`), hooks in camelCase with “use” prefix.
+
+# 3. Backend (Node.js + Express + TypeORM)
+- Directory layout: 
+  - `backend/src/index.ts` for entry point
+  - `backend/src/routes/` for Express routers
+  - `backend/src/services/` for business logic
+  - `backend/src/entities/` for TypeORM entities
+  - `backend/src/middleware/` for auth, error handling, etc.
+- Controllers (routes) should call into services; services talk to TypeORM entities.
+- Use async/await everywhere; wrap async routes with an error-catching middleware.
+- Prefix all APIs with `/api`, and keep route filenames kebab-case matching their URL (e.g. `booking-routes.ts` → `/api/bookings`).
+- Environment via `dotenv`; never hard-code secrets.
+- Database URL via `process.env.DATABASE_URL`.
+
+# 4. Testing
+- Tests go alongside code in `__tests__` folders.
+- Use Jest with ts-jest; test files use `.spec.ts` suffix.
+- Always mock external calls (e.g. database, third-party APIs).
+
+# 5. Git & CI
+- Commit messages: UPPER-case subject line, imperative tense (“Add booking route”).
+- CI: run ESLint → Prettier check → `npm test` on every push.
+
+# 6. Documentation
+- Every new service or route file must include a JSDoc comment block summarizing its purpose.
